@@ -2,10 +2,13 @@
   "name": "react-disqus-thread",
   "version": "0.4.0",
   "description": "React Disqus thread component",
-  "main": "lib/main.js",
+  "main": "build/main.js",
   "scripts": {
     "test": "rackt test --single-run --browsers Firefox",
-    "start": "rackt server"
+    "start": "rackt server",
+    "clean:build": "if [ -d build ]; then rm -rf build; fi",
+    "prebuild": "npm run clean:build",
+    "build": "babel -d build --ignore DisqusThread-test.js lib"
   },
   "repository": {
     "type": "git",
@@ -27,6 +30,10 @@
     "react-dom": "^15.0.1 || ^16.0.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "rackt-cli": "^0.5.3",
     "react": "^15.0.1",
     "react-dom": "^15.0.1"
