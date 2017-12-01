@@ -5,6 +5,10 @@
   "main": "build/DisqusThread.js",
   "module": "es/DisqusThread.js",
   "jsnext:main": "es/DisqusThread.js",
+  "files": [
+    "build",
+    "es"
+  ],
   "scripts": {
     "test": "rackt test --single-run --browsers Firefox",
     "start": "rackt server",

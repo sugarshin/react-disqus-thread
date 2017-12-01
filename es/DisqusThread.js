@@ -1,23 +1,10 @@
-'use strict';
-
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _createReactClass = require('create-react-class');
-
-var _createReactClass2 = _interopRequireDefault(_createReactClass);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+import React from 'react';
+import PropTypes from 'prop-types';
+import createClass from 'create-react-class';
 var DISQUS_CONFIG = ['shortname', 'identifier', 'title', 'url', 'category_id', 'onNewComment'];
 var __disqusAdded = false;
 
@@ -37,18 +24,18 @@ function copyProps(context, props) {
   }
 }
 
-module.exports = (0, _createReactClass2.default)({
+export default createClass({
   displayName: 'DisqusThread',
 
   propTypes: {
-    id: _propTypes2.default.string,
+    id: PropTypes.string,
 
     /**
      * `shortname` tells the Disqus service your forum's shortname,
      * which is the unique identifier for your website as registered
      * on Disqus. If undefined , the Disqus embed will not load.
      */
-    shortname: _propTypes2.default.string.isRequired,
+    shortname: PropTypes.string.isRequired,
 
     /**
      * `identifier` tells the Disqus service how to identify the
@@ -59,7 +46,7 @@ module.exports = (0, _createReactClass2.default)({
      * domains, so we recommend using your own unique way of
      * identifying a thread.
      */
-    identifier: _propTypes2.default.string,
+    identifier: PropTypes.string,
 
     /**
      * `title` tells the Disqus service the title of the current page.
@@ -67,7 +54,7 @@ module.exports = (0, _createReactClass2.default)({
      * If undefined, Disqus will use the <title> attribute of the page.
      * If that attribute could not be used, Disqus will use the URL of the page.
      */
-    title: _propTypes2.default.string,
+    title: PropTypes.string,
 
     /**
      * `url` tells the Disqus service the URL of the current page.
@@ -76,21 +63,21 @@ module.exports = (0, _createReactClass2.default)({
      * is undefined. In addition, this URL is always saved when a thread is
      * being created so that Disqus knows what page a thread belongs to.
      */
-    url: _propTypes2.default.string,
+    url: PropTypes.string,
 
     /**
      * `category_id` tells the Disqus service the category to be used for
      * the current page. This is used when creating the thread on Disqus
      * for the first time.
      */
-    category_id: _propTypes2.default.string,
+    category_id: PropTypes.string,
 
     /**
      * `onNewComment` function accepts one parameter `comment` which is a
      * JavaScript object with comment `id` and `text`. This allows you to track
      * user comments and replies and run a script after a comment is posted.
      */
-    onNewComment: _propTypes2.default.func
+    onNewComment: PropTypes.func
   },
 
   getDefaultProps: function getDefaultProps() {
@@ -118,29 +105,29 @@ module.exports = (0, _createReactClass2.default)({
       }) ? p : _extends({}, p, _defineProperty({}, k, _this.props[k]));
     }, {});
 
-    return _react2.default.createElement(
+    return React.createElement(
       'div',
       props,
-      _react2.default.createElement('div', { id: 'disqus_thread' }),
-      _react2.default.createElement(
+      React.createElement('div', { id: 'disqus_thread' }),
+      React.createElement(
         'noscript',
         null,
-        _react2.default.createElement(
+        React.createElement(
           'span',
           null,
           'Please enable JavaScript to view the',
-          _react2.default.createElement(
+          React.createElement(
             'a',
             { href: 'http://disqus.com/?ref_noscript' },
             'comments powered by Disqus.'
           )
         )
       ),
-      _react2.default.createElement(
+      React.createElement(
         'a',
         { href: 'http://disqus.com', className: 'dsq-brlink' },
         'Blog comments powered by ',
-        _react2.default.createElement(
+        React.createElement(
           'span',
           { className: 'logo-disqus' },
           'Disqus'
