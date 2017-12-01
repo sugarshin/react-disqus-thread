@@ -2,13 +2,18 @@
   "name": "react-disqus-thread",
   "version": "0.4.0",
   "description": "React Disqus thread component",
-  "main": "build/main.js",
+  "main": "build/DisqusThread.js",
+  "module": "es/DisqusThread.js",
+  "jsnext:main": "es/DisqusThread.js",
   "scripts": {
     "test": "rackt test --single-run --browsers Firefox",
     "start": "rackt server",
     "clean:build": "if [ -d build ]; then rm -rf build; fi",
-    "prebuild": "npm run clean:build",
-    "build": "babel -d build --ignore DisqusThread-test.js lib"
+    "clean:es": "if [ -d es ]; then rm -rf es; fi",
+    "prebuild": "npm run clean:build && npm run clean:es",
+    "build:cjs": "BABEL_ENV=cjs babel -d build --ignore DisqusThread-test.js lib",
+    "build:es": "BABEL_ENV=es babel -d es --ignore DisqusThread-test.js lib",
+    "build": "npm run build:cjs && npm run build:es"
   },
   "repository": {
     "type": "git",

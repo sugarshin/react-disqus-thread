@@ -3791,7 +3791,7 @@ rf-changelog@0.4.0:
   dependencies:
     commander "2.1.0"
 
-"rf-release@github:mzabriskie/rf-release":
+rf-release@mzabriskie/rf-release:
   version "0.4.0"
   resolved "https://codeload.github.com/mzabriskie/rf-release/tar.gz/3586284a1b702ca61a49123ff57aacd9a6324833"
   dependencies:
